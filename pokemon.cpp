@@ -1,121 +1,3 @@
-//#include <stdio.h>
-//#include <stdlib.h>
-//#include <time.h>
-//
-//struct TYPE
-//{
-//	char name[50];
-//};
-//
-//struct SKILL
-//{
-//	char name[50];
-//	int damage;
-//};
-//
-//struct POKEMON
-//{
-//	char name[50];
-//	int HP;
-//	int LV;
-//	TYPE type[2];
-//	SKILL skill[4];
-//};
-//
-//struct USER
-//{
-//	char name[50] = "ÀÌÁØÇõ";
-//	int HP = 500;
-//	int LV = 100;
-//	SKILL skill[4] = {"HTML ÇÏ±â", 200, "ÄÚµå °¥¾Æ¾þ±â", 130, "ÃãÃß±â", 100, "À¥»çÀÌÆ® ÀÚ¶ûÇÏ±â", 150};
-//};
-//
-//void line()
-//{
-//	printf("\n----------------------------------------\n");
-//}
-//
-//int main()
-//{	
-//	POKEMON pokemon[10] =
-//	{
-//		//{"ÇÇÄ«Ãò", 0, 0, "Àü±â", "-", "10¸¸º¼Æ®", 90, "Àü±¤¼®È­", 40, "¹æÀü", 80, "ÀÏ·ºÆ®¸¯º¼", 0},
-//		//{"ÀÌ»óÇØ¾¾", 0, 0, "Ç®", "µ¶", "¿ïÀ½¼Ò¸®", 0, "µ¢±¼Ã¤Âï", 35, "¼ºÀå", 0, "ÀÙ³¯°¡¸£±â", 55},
-//		//{"²¿ºÎ±â", 0, 0, "¹°", "-", "¸öÅë¹ÚÄ¡±â", 35, "¹°´ëÆ÷", 40, "¹°±â", 60, "ÇÏÀÌµå·ÎÆßÇÁ", 120},
-//		//{"ÆÄÀÌ¸®", 0, 0, "ºÒ", "-", "ÇÒÄû±â", 40, "ºÒ²É¼¼·Ê", 40, "º£¾î°¡¸£±â", 70, "¿ïÀ½¼Ò¸®", 0},
-//		{"±è¹ÎÁØ", 0, 0, "¿ÀÅ¸Äí", "ºñÁ¤»ó", "Èæ¼¶", 100, "¿µ¿ªÀü°³", 150, "ÆÈ±¥ 64Àå", 130, "´öÁú", 100},
-//		{"±ÇÁö¼º", 0, 0, "ÀÎ°£", "-", "Àá¶ãÆ¼ºñ º¸±â", 130, "Âî¸£±â", 150, "¸ÀÁýÅ½¹æ", 130, "ÈÉÄ¡±â", 130},
-//		{"ÀÌÁ¾Çö", 0, 0, "¼öÇÐÃµÀç", "-", "Áøµµ ³ª°¡±â", 150, "ÁýÁßÇÏ±â", 130, "¹¬¾ð¼öÇà", 150, "¼öÇÐ¹®Á¦ Ç®±â", 150},
-//		{"Á¶ÀºÂù", 0, 0, "ÀÎ°£", "-", "Áö¿À¸ÞÆ®¸® ´ë½Ã", 100, "¾óºÒÃã", 100, "ÁöÅÍÅ¬¸¯", 150, "±¸°æÇÏ±â", 130},
-//	};
-//
-//	USER player;
-//
-//	while (1)
-//	{
-//		int random = rand() % 4;
-//		int random2 = rand() % 4;
-//		int randomLV = rand() % 50 + 1;
-//
-//		pokemon[random].LV = randomLV;
-//		pokemon[random].HP = randomLV + 30;
-//
-//		printf("\n\n¾ß»ýÀÇ %s(ÀÌ)°¡ ³ªÅ¸³µ´Ù!\n\n", pokemon[random].name);
-//
-//		for (int cnt = 0;; cnt++)
-//		{
-//			int select = 0;
-//
-//			line();
-//
-//			srand(time(NULL));
-//
-//			if (*pokemon[random].type[1].name == '-') printf("\n[ %s ] %s Å¸ÀÔ\nHP : %d / LV : %d\n", pokemon[random].name, pokemon[random].type[0].name, pokemon[random].HP, pokemon[random].LV);
-//			else printf("\n[ %s ] %s, %s Å¸ÀÔ / HP : %d / LV : %d\n", pokemon[random].name, pokemon[random].type[0].name, pokemon[random].type[1].name, pokemon[random].HP, pokemon[random].LV);
-//
-//			printf("\n\n¾ß»ý %sÀÇ [ %s ]!", pokemon[random].name, pokemon[random].skill[random2].name);
-//			printf("\nµ¥¹ÌÁö %d", pokemon[random].skill[random2].damage);
-//
-//			printf("\n\n");
-//
-//			player.HP -= pokemon[random].skill[random2].damage;
-//
-//			printf("\n[ ÇÃ·¹ÀÌ¾î %s ] / HP : %d / LV : %d\n", player.name, player.HP, player.LV);
-//
-//			printf("\n\n¹«¾ùÀ» ÇÏ½Ã°Ú½À´Ï±î? [1] ½Î¿î´Ù [2] µµ±¸ [3] µµ¸Á°£´Ù ==> ");
-//			scanf("%d", &select);
-//
-//			if (select == 1)
-//			{
-//				printf("\n\n¹«½¼ ±â¼úÀ» »ç¿ëÇÏ½Ã°Ú½À´Ï±î? [1] %s [2] %s [3] %s [4] %s ==> ", player.skill[0].name, player.skill[1].name, player.skill[2].name, player.skill[3].name);
-//				scanf("%d", &select);
-//
-//				if (select == 4) player.skill[select - 1].damage = pokemon[random].skill[random2].damage * 2;
-//
-//				printf("\n\nÇÃ·¹ÀÌ¾î %sÀÇ [ %s ]!", player.name, player.skill[select - 1].name);
-//				printf("\nµ¥¹ÌÁö %d", player.skill[select - 1].damage);
-//
-//				if (player.skill[select - 1].damage >= pokemon[random].HP)
-//				{
-//					printf("\n\n¾ß»ý %s(Àº)´Â ¾²·¯Á³´Ù!", pokemon[random].name);
-//					player.LV++;
-//
-//					break;
-//				}
-//			}
-//			else if (select == 2)
-//			{
-//				printf("\n\n»óÃ³¾àÀ» »ç¿ëÇß´Ù! (HP 250 È¸º¹)");
-//				player.HP += 250;
-//			}
-//			else if (select == 3)
-//			{
-//				printf("\n\nµµ¸Á Ä¥ ¼ö ¾ø¾ú´Ù!");
-//			}
-//		}
-//	}
-//}
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -150,17 +32,17 @@ struct POKEMON
 
 struct PLAYER
 {
-	char name[50] = "¼öÇü½Ü";
+	char name[50] = "ìˆ˜í˜•ìŒ¤";
 	int money = 3000;
 };
 
 struct PLAYER_POKEMON
 {
-	char name[50] = "ÀÌÁØÇõ";
+	char name[50] = "ì´ì¤€í˜";
 	int HP = 500;
 	int LV;
-	TYPE type[2] = {"¿µÀç", "ÇÁ·ÐÆ®¿£µå °³¹ßÀÚ (ÁË¼ÛÇÕ´Ï´Ù)"};
-	SKILL skill[4] = {"HTML ÇÏ±â", 200, "USB ºÎ¼ö±â", 200, "º¹½À ¾ÈÇØ¿À±â", 150, "ÄÚµå °¥¾Æ¾þ±â", 150}; //150 150 200 200 A+
+	TYPE type[2] = {"ì˜ìž¬", "í”„ë¡ íŠ¸ì—”ë“œ ê°œë°œìž (ì£„ì†¡í•©ë‹ˆë‹¤)"};
+	SKILL skill[4] = {"HTML í•˜ê¸°", 200, "USB ë¶€ìˆ˜ê¸°", 200, "ë³µìŠµ ì•ˆí•´ì˜¤ê¸°", 150, "ì½”ë“œ ê°ˆì•„ì—Žê¸°", 150}; //150 150 200 200 A+
 };
 
 void line()
@@ -175,22 +57,22 @@ int main()
 
 	POKEMON pokemon[5] =
 	{
-		//{ÀÌ¸§, HP, LV, Å¸ÀÔ1, Å¸ÀÔ2, ±â¼ú1, µ¥¹ÌÁö, ±â¼ú2, µ¥¹ÌÁö, ±â¼ú3, µ¥¹ÌÁö, ±â¼ú4, µ¥¹ÌÁö}
-		{"±è¹ÎÁØ", HP, LV, "¿µÀç", "¿ÀÅ¸Äí", "Èæ¼¶", 150, "¿µ¿ªÀü°³", 200, "ÆÈ±¥ 64Àå", 150, "ÇÏµå ³¯¸®±â", 200}, //150 150 200 200 A+
-		{"±ÇÁö¼º", HP, LV, "ÀÎ°£", "Àá¶ã ÂðÆÒ", "Àá¶ãÆ¼ºñ º¸±â", 200, "Âî¸£±â", 150, "¹Ð±â", 100, "ÈÉÄ¡±â", 200}, //100 150 200 200 B
-		{"ÀÌÁ¾Çö", HP, LV, "¿µÀç", "¼öÇÐÃµÀç", "¼öÇÐ¹®Á¦ Ç®±â", 150, "¹¬¾ð¼öÇà", 150, "Áøµµ ³ª°¡±â", 200, "ÁýÁßÇÏ±â", 150}, //150 150 150 200 B+
-		{"Á¶ÀºÂù", HP, LV, "ÀÎ°£", "ÂÉ²¿¹Ì", "±¸°æÇÏ±â", 150, "¾óºÒÃãÇÏ±â", 100, "Áö¸ÞÇÏ±â", 100, "ÁöÅÍÅ¬¸¯", 200}, //100 100 150 200 B-
-		{"Á¤¹Î½´", HP, LV, "½´Å©¸²", "ÂÉ²¿¹Ì", "¹ß¸®¼Ûµ¹¸®±â", 200, "µýÁþÇÏ±â", 150, "Ãà±¸ÇÏ±â", 150, "¾Ö±³ºÎ¸®±â", 150}, //150 150 150 200 A
+		//{ì´ë¦„, HP, LV, íƒ€ìž…1, íƒ€ìž…2, ê¸°ìˆ 1, ë°ë¯¸ì§€, ê¸°ìˆ 2, ë°ë¯¸ì§€, ê¸°ìˆ 3, ë°ë¯¸ì§€, ê¸°ìˆ 4, ë°ë¯¸ì§€}
+		{"ê¹€ë¯¼ì¤€", HP, LV, "ì˜ìž¬", "ì˜¤íƒ€ì¿ ", "í‘ì„¬", 150, "ì˜ì—­ì „ê°œ", 200, "íŒ”ê´˜ 64ìž¥", 150, "í•˜ë“œ ë‚ ë¦¬ê¸°", 200}, //150 150 200 200 A+
+		{"ê¶Œì§€ì„±", HP, LV, "ì¸ê°„", "ìž ëœ° ì°íŒ¬", "ìž ëœ°í‹°ë¹„ ë³´ê¸°", 200, "ì°Œë¥´ê¸°", 150, "ë°€ê¸°", 100, "í›”ì¹˜ê¸°", 200}, //100 150 200 200 B
+		{"ì´ì¢…í˜„", HP, LV, "ì˜ìž¬", "ìˆ˜í•™ì²œìž¬", "ìˆ˜í•™ë¬¸ì œ í’€ê¸°", 150, "ë¬µì–¸ìˆ˜í–‰", 150, "ì§„ë„ ë‚˜ê°€ê¸°", 200, "ì§‘ì¤‘í•˜ê¸°", 150}, //150 150 150 200 B+
+		{"ì¡°ì€ì°¬", HP, LV, "ì¸ê°„", "ìª¼ê¼¬ë¯¸", "êµ¬ê²½í•˜ê¸°", 150, "ì–¼ë¶ˆì¶¤í•˜ê¸°", 100, "ì§€ë©”í•˜ê¸°", 100, "ì§€í„°í´ë¦­", 200}, //100 100 150 200 B-
+		{"ì •ë¯¼ìŠˆ", HP, LV, "ìŠˆí¬ë¦¼", "ìª¼ê¼¬ë¯¸", "ë°œë¦¬ì†¡ëŒë¦¬ê¸°", 200, "ë”´ì§“í•˜ê¸°", 150, "ì¶•êµ¬í•˜ê¸°", 150, "ì• êµë¶€ë¦¬ê¸°", 150}, //150 150 150 200 A
 	};
 
 	PLAYER player;
 	PLAYER_POKEMON playerPokemon;
 	ITEM item[4] =
 	{
-		{"»óÃ³¾à", 20, 200},
-		{"ÁÁÀº»óÃ³¾à", 60, 700},
-		{"°í±Þ»óÃ³¾à", 120, 1500},
-		{"Ç®È¸º¹¾à", 0, 2500},
+		{"ìƒì²˜ì•½", 20, 200},
+		{"ì¢‹ì€ìƒì²˜ì•½", 60, 700},
+		{"ê³ ê¸‰ìƒì²˜ì•½", 120, 1500},
+		{"í’€íšŒë³µì•½", 0, 2500},
 	};
 
 	srand(time(NULL));
@@ -231,17 +113,17 @@ int main()
 		pokemon[random_pokemon].LV = LV;
 		pokemon[random_pokemon].HP = HP;
 
-		printf("¾ß»ý [ %s ](ÀÌ)°¡ ³ªÅ¸³µ´Ù!\n", pokemon[random_pokemon].name);
+		printf("ì•¼ìƒ [ %s ](ì´)ê°€ ë‚˜íƒ€ë‚¬ë‹¤!\n", pokemon[random_pokemon].name);
 		printf("HP : %d / LV : %d\n\n", pokemon[random_pokemon].HP, pokemon[random_pokemon].LV);
 		Sleep(750);
 
-		printf("ÇÃ·¹ÀÌ¾î [ %s ] : °¡¶ù [ %s ]!\n\n", player.name, playerPokemon.name);
+		printf("í”Œë ˆì´ì–´ [ %s ] : ê°€ëž [ %s ]!\n\n", player.name, playerPokemon.name);
 		
 		while (1)
 		{
 			Sleep(750);
 
-			printf("¾ß»ý [ %s ]\n", pokemon[random_pokemon].name);
+			printf("ì•¼ìƒ [ %s ]\n", pokemon[random_pokemon].name);
 			printf("HP : %d / LV : %d\n\n", pokemon[random_pokemon].HP, pokemon[random_pokemon].LV);
 			Sleep(750);
 
@@ -250,22 +132,22 @@ int main()
 
 			while (1)
 			{
-				printf("\n¹«¾ùÀ» ÇÏ½Ã°Ú½À´Ï±î? [1] ½Î¿î´Ù [2] µµ±¸(Ä¡À¯) [3] µµ¸Á°£´Ù ==> ", playerPokemon.name, playerPokemon.HP, playerPokemon.LV);
+				printf("\në¬´ì—‡ì„ í•˜ì‹œê² ìŠµë‹ˆê¹Œ? [1] ì‹¸ìš´ë‹¤ [2] ë„êµ¬(ì¹˜ìœ ) [3] ë„ë§ê°„ë‹¤ ==> ", playerPokemon.name, playerPokemon.HP, playerPokemon.LV);
 				scanf("%d", &answer);
 				Sleep(750);
 
 				if (answer == 1)
 				{
-					printf("\n¹«½¼ ±â¼úÀ» »ç¿ëÇÏ½Ã°Ú½À´Ï±î? [1] %s [2] %s [3] %s [4] %s [5] µ¹¾Æ°£´Ù ==> ", playerPokemon.skill[0].name, playerPokemon.skill[1].name, playerPokemon.skill[2].name, playerPokemon.skill[3].name);
+					printf("\në¬´ìŠ¨ ê¸°ìˆ ì„ ì‚¬ìš©í•˜ì‹œê² ìŠµë‹ˆê¹Œ? [1] %s [2] %s [3] %s [4] %s [5] ëŒì•„ê°„ë‹¤ ==> ", playerPokemon.skill[0].name, playerPokemon.skill[1].name, playerPokemon.skill[2].name, playerPokemon.skill[3].name);
 					scanf("%d", &answer);
 					Sleep(750);
 
 					if (answer == 5) continue;
 
-					printf("\n[ %s ]ÀÇ %s!\n", playerPokemon.name, playerPokemon.skill[answer - 1].name);
+					printf("\n[ %s ]ì˜ %s!\n", playerPokemon.name, playerPokemon.skill[answer - 1].name);
 					Sleep(750);
 
-					printf("¾ß»ý [ %s ]ÀÇ HP°¡ %d¸¸Å­ ±ð¿´´Ù!\n\n", pokemon[random_pokemon].name, playerPokemon.skill[answer - 1].damage);
+					printf("ì•¼ìƒ [ %s ]ì˜ HPê°€ %dë§Œí¼ ê¹Žì˜€ë‹¤!\n\n", pokemon[random_pokemon].name, playerPokemon.skill[answer - 1].damage);
 					pokemon[random_pokemon].HP -= playerPokemon.skill[answer - 1].damage;
 					Sleep(750);
 
@@ -273,29 +155,29 @@ int main()
 				}
 				if (answer == 2)
 				{
-					printf("\n¹«½¼ µµ±¸¸¦ »ç¿ëÇÏ½Ã°Ú½À´Ï±î?\n[1] %s ( %d¿ø ) [2] %s ( %d¿ø ) [3] %s ( %d¿ø ) [4] %s ( %d¿ø ) [5] µ¹¾Æ°£´Ù ==> ", item[0].name, item[0].price, item[1].name, item[1].price, item[2].name, item[2].price, item[3].name, item[3].price, item[4].name, item[4].price);
+					printf("\në¬´ìŠ¨ ë„êµ¬ë¥¼ ì‚¬ìš©í•˜ì‹œê² ìŠµë‹ˆê¹Œ?\n[1] %s ( %dì› ) [2] %s ( %dì› ) [3] %s ( %dì› ) [4] %s ( %dì› ) [5] ëŒì•„ê°„ë‹¤ ==> ", item[0].name, item[0].price, item[1].name, item[1].price, item[2].name, item[2].price, item[3].name, item[3].price, item[4].name, item[4].price);
 					scanf("%d", &answer);
 					Sleep(750);
 
 					if (player.money - item[answer - 1].price < 0)
 					{
-						printf("µ·ÀÌ ºÎÁ·ÇÏ´Ù!\n\n");
+						printf("ëˆì´ ë¶€ì¡±í•˜ë‹¤!\n\n");
 						continue;
 					}
 
 					if (answer == 5) continue;
 
-					printf("\n\n%s¸¦ »ç¿ëÇß´Ù!", item[answer - 1].name);
+					printf("\n\n%së¥¼ ì‚¬ìš©í–ˆë‹¤!", item[answer - 1].name);
 					player.money -= item[answer - 1].price;
 
 					if (answer != 4)
 					{
-						printf("\n[ %s ]ÀÇ HP°¡ %d¸¸Å­ È¸º¹µÆ´Ù!\n\n", playerPokemon.name, item[answer - 1].recoveryAmount);
+						printf("\n[ %s ]ì˜ HPê°€ %dë§Œí¼ íšŒë³µëë‹¤!\n\n", playerPokemon.name, item[answer - 1].recoveryAmount);
 						playerPokemon.HP += item[answer - 1].recoveryAmount;
 					}
 					else
 					{
-						printf("\n[ %s ]ÀÇ HP°¡ °¡µæ Ã¡´Ù!\n\n", playerPokemon.name);
+						printf("\n[ %s ]ì˜ HPê°€ ê°€ë“ ì°¼ë‹¤!\n\n", playerPokemon.name);
 						playerPokemon.HP = 500;
 					}
 
@@ -303,25 +185,25 @@ int main()
 				}
 				else if (answer == 3)
 				{
-					printf("\nµµ¸Á Ä¥ ¼ö ¾ø¾ú´Ù!\n\n");
+					printf("\në„ë§ ì¹  ìˆ˜ ì—†ì—ˆë‹¤!\n\n");
 
 					break;
 				}
 				else
 				{
-					printf("\nÀß¸ø ÀÔ·ÂÇß´Ù!\n\n");
+					printf("\nìž˜ëª» ìž…ë ¥í–ˆë‹¤!\n\n");
 				}
 			}
 			if (pokemon[random_pokemon].HP <= 0)
 			{
-				printf("¾ß»ý [ %s ](Àº)´Â ¾²·¯Á³´Ù!", pokemon[random_pokemon].name);
+				printf("ì•¼ìƒ [ %s ](ì€)ëŠ” ì“°ëŸ¬ì¡Œë‹¤!", pokemon[random_pokemon].name);
 				break;
 			}
 
-			printf("¾ß»ý [ %s ]ÀÇ %s!\n", pokemon[random_pokemon].name, pokemon[random_pokemon].skill[random_skill].name);
+			printf("ì•¼ìƒ [ %s ]ì˜ %s!\n", pokemon[random_pokemon].name, pokemon[random_pokemon].skill[random_skill].name);
 			Sleep(750);
 
-			printf("[ %s ]ÀÇ HP°¡ %d¸¸Å­ ±ð¿´´Ù!\n\n", playerPokemon.name, pokemon[random_pokemon].skill[random_skill].damage);
+			printf("[ %s ]ì˜ HPê°€ %dë§Œí¼ ê¹Žì˜€ë‹¤!\n\n", playerPokemon.name, pokemon[random_pokemon].skill[random_skill].damage);
 			playerPokemon.HP -= pokemon[random_pokemon].skill[random_skill].damage;
 			Sleep(750);
 
@@ -331,7 +213,7 @@ int main()
 
 			if (playerPokemon.HP <= 0)
 			{
-				printf("[ %s ](Àº)´Â ¾²·¯Á³´Ù!", playerPokemon.name);
+				printf("[ %s ](ì€)ëŠ” ì“°ëŸ¬ì¡Œë‹¤!", playerPokemon.name);
 				break;
 			}
 			
